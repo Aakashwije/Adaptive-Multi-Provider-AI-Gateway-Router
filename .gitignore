@@ -1,0 +1,43 @@
+# ───────────────────────────────────────────────────────────
+#  Claude Code / local AI assistant files — DO NOT push to GitHub
+# ───────────────────────────────────────────────────────────
+.claude/
+.claude/**
+CLAUDE.local.md
+.anthropic/
+
+# ───────────────────────────────────────────────────────────
+#  Secrets & environment
+# ───────────────────────────────────────────────────────────
+.env
+.env.*
+*.local
+*.secret
+
+# ───────────────────────────────────────────────────────────
+#  Go build artifacts
+# ───────────────────────────────────────────────────────────
+/bin/
+/dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+go.work.sum
+
+# Compiled binaries from our cmd/ and mocks/ if built locally
+/router
+/provider-a
+/provider-b
+
+# ───────────────────────────────────────────────────────────
+#  Editor / OS noise
+# ───────────────────────────────────────────────────────────
+.DS_Store
+.idea/
+.vscode/
+*.swp

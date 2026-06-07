@@ -1,0 +1,30 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  router.yaml — the SINGLE SOURCE OF TRUTH for the gateway's providers.
+#
+#  This is where you declare which downstream AI providers exist and what their
+#  routing characteristics are. The gateway reads this at startup.
+#
+#  Field meanings (read carefully — this trips people up):
+#
+#    cost_score : a normalised COST-EFFICIENCY score in the range [0.0 .. 1.0].
+#                 HIGHER  = CHEAPER / more cost-efficient.
+#                 (provider-a = 0.9 is therefore CHEAPER than provider-b = 0.5)
+#
+#    latency_ms : the provider's typical response time, in milliseconds.
+#                 LOWER   = FASTER.
+#
+#  So in this sample:
+#    • provider-a → cheaper (0.9) but slower (800ms)
+#    • provider-b → pricier (0.5) but faster (200ms)
+# ─────────────────────────────────────────────────────────────────────────────
+
+providers:
+  - id: provider-a
+    url: http://localhost:9001
+    cost_score: 0.9      # higher = cheaper  → cheapest of the two
+    latency_ms: 800      # slower
+
+  - id: provider-b
+    url: http://localhost:9002
+    cost_score: 0.5      # lower = pricier
+    latency_ms: 200      # faster  → fastest of the two
